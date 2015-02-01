@@ -1,0 +1,33 @@
+{{headerwarning}}
+FROM ubuntu:14.04
+
+RUN apt-get -y install software-properties-common
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get -y install nginx
+
+RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
+RUN apt-get -y install oracle-java7-installer oracle-java7-set-default
+
+EXPOSE 80 
+
+ADD run.sh /root/run.sh
+ADD photos /var/photos
+ADD frontend /var/www
+ADD backend.jar /root/backend.jar
+
+{% if deployment %} 
+ADD frontend-deployment.js /var/www/config/config.js
+ADD backend-deployment.conf /root/backend.conf
+ADD nginx-deployment /etc/nginx/sites-enabled/default
+{% else %}
+ADD frontend-testing.js /var/www/config/config.js
+ADD backend-testing.conf /root/backend.conf
+ADD nginx-testing /etc/nginx/sites-enabled/default
+{% endif %}
+
+{% if deployment %} 
+# ENTRYPOINT /root/run.sh
+{% endif %}

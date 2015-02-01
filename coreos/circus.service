@@ -1,0 +1,11 @@
+[Unit]
+Description=Circusoc test website
+After=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill circus
+ExecStartPre=-/usr/bin/docker rm circus
+ExecStartPre=/usr/bin/docker pull ririw/dist
+ExecStart=/usr/bin/docker run --name circus -p 80:80 ririw/dist 
+ExecStop=/usr/bin/docker stop circus
