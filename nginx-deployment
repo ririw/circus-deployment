@@ -1,22 +1,14 @@
 server {
 	listen 80;
 
-	root /var/www;
-	index index.html index.htm;
-
 	server_name acrobalanced.com;
 
 	location / {
+		root /var/www;
+		index index.html index.htm;
 	}
-}
 
-
-server {
-	listen 80;
-
-	server_name api.acrobalanced.com;
-
-	location / {
+	location /api/ {
 
 		proxy_set_header        Host $host;
 		proxy_set_header        X-Real-IP $remote_addr;

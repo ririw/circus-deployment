@@ -1,0 +1,18 @@
+.hire md-input-group input :not(.ng-dirty) {
+    border-color: rgba(255,0,0,0.3);
+    border-width: 0 0 2px;
+}
+
+.hire md-input-group input.ng-invalid {
+    border-color: rgba(255,0,0,0.3);
+    border-width: 0 0 2px;
+}
+
+.hire md-input-group input.ng-valid.ng-dirty {
+    border-color: rgba(64, 197, 55, .75);
+    border-width: 0 0 2px;
+}
+
+.hire .centered-price {
+    padding-left: 40px;
+}

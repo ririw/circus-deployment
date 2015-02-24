@@ -150,12 +150,14 @@ class BuildRunDockerfile(cli.Application):
 
 	def build_image(self, plan=False):
 		if plan:
-			return "building docker image ririw/dist"
-		docker_build = local['sudo']('docker', 'build', '-t', 'ririw/dist', '.')
+			if self.test_dockerfile:
+				return "building docker image ririw/circus:testing"
+			else:
+				return "building docker image ririw/circus:production"
+		image_name = 'ririw/circus:testing' if self.test_dockerfile else 'ririw/circus:production'
+		docker_build = local['sudo']('docker', 'build', '-t', image_name, '.')
 		logging.info('Built the system: \n' + docker_build)
-		#docker_run = local['sudo'].popen(args=['docker', 'run', '-i', '-t', '-p', '80:80', 'dist', '/bin/bash'])
-		#while docker_run.poll():
-			#print docker_run.communicate()
+		logging.info('Tagged as: ' + image_name)
 
 	def grab_backend(self, plan=False):
 		if plan:

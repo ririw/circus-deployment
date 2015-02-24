@@ -1,0 +1,16 @@
+<md-content class="md-content-padding login" ng-controller="LoginController">
+    <md-card class="circus-card">
+        <h2>Login below</h2>
+        <h3>This is for circusoc exec members, you may not be in the right place.</h3>
+        <form novalidate name="hireform" ng-show="!loggedin()">
+            <div>
+                <md-text-float required label="Username" ng-model="username"></md-text-float>
+                <md-text-float required type='password' label="Password" ng-model="password"></md-text-float>
+            </div>
+            <div>
+                <md-button class="md-primary md-raised" ng-click="login()">Login</md-button>
+            </div>
+        </form>
+        <md-button class="md-primary md-raised" ng-show="loggedin()" ng-click="logout()">Logout</md-button>
+    </md-card>
+</md-content>

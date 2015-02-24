@@ -1,5 +1,5 @@
 app.factory('config', function() {
     return {
-        base_url: "http://api.acrobalanced.com"
+        base_url: "http://acrobalanced.com/api"
     };
 });

@@ -1,0 +1,28 @@
+.join form {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.join md-input-group input :not(.ng-dirty) {
+    border-color: rgba(255,0,0,0.3);
+    border-width: 0 0 2px;
+}
+
+.join md-input-group input.ng-invalid {
+    border-color: rgba(255,0,0,0.3);
+    border-width: 0 0 2px;
+}
+
+.join md-input-group input.ng-valid.ng-dirty {
+    border-color: rgba(64, 197, 55, .75);
+    border-width: 0 0 2px;
+}
+
+.join .ng-submitted md-input-group.ng-invalid-required input {
+    border-color: rgba(255,0,0,0.3);
+    border-width: 0 0 2px;
+}
+.join .ng-submitted md-checkbox.ng-invalid-required .md-container {
+    background-color: rgba(255,0,0,0.3);
+    border-width: 0 0 2px;
+}

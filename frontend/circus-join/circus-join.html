@@ -1,0 +1,23 @@
+<md-content class="md-content-padding join" ng-controller="JoinController">
+    <md-card class="circus-card">
+        <h2>Join us!</h2>
+        <form novalidate name="joinform" ng-submit="join()">
+            <div layout="row">
+                <div>
+                    <md-text-float required label='name*' ng-model="name"></md-text-float>
+                    <md-text-float type='email' label="email" ng-model="email"></md-text-float>
+                    <md-text-float type='text' label="student number" ng-model="student_number"></md-text-float>
+                </div>
+                <div flex="10"></div>
+                <div>
+                    <md-checkbox ng-model="isarc">Arc member</md-checkbox>
+                    <md-checkbox ng-model="newsletter">Newsletter</md-checkbox>
+                    <md-checkbox ng-model="waiver" required>Agree to waiver</md-checkbox>
+                </div>
+            </div>
+            <div layout="row">
+                <md-button type="submit" layout-align="center" class="md-primary md-raised circus-hirebutton">Join!</md-button>
+            </div>
+        </form>
+    </md-card>
+</md-content>

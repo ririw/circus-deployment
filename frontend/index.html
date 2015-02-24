@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="performer/performer.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="circus-artists/circus-artists.css">
+    <link rel="stylesheet" href="circus-contact/circus-contact.css">
+    <link rel="stylesheet" href="circus-hire/circus-hire.css">
+    <link rel="stylesheet" href="circus-join/circus-join.css">
+    <link rel="stylesheet" href="circus-login/circus-login.css">
+</head>
+<body ng-app="CircusSite">
+
+<div ng-controller="TabNav">
+    <md-tabs md-selected="selectedIndex" center class="circus-yellow" >
+        <md-tab ng-repeat="tab in tabs"
+                ng-click="setlocation(tab)"
+                label="{{tab.title}}">
+        </md-tab>
+    </md-tabs>
+</div>
+
+<ng-view></ng-view>
+
+
+<script src="bower_components/angular/angular.min.js" ></script>
+<script src="bower_components/hammerjs/hammer.min.js" ></script>
+<script src="bower_components/angular-route/angular-route.js" ></script>
+<script src="bower_components/angular-aria/angular-aria.js" ></script>
+<script src="bower_components/angular-animate/angular-animate.js" ></script>
+<script src="bower_components/angular-material/angular-material.min.js" ></script>
+<script src="bower_components/masonry/dist/masonry.pkgd.min.js" ></script>
+<script src="index.js" ></script>
+<script src="api_service/api_service.js" ></script>
+<script src="circus-contact/circus-contact.js" ></script>
+<script src="circus-artists/circus-artists.js" ></script>
+<script src="circus-hire/circus-hire.js" ></script>
+<script src="performer/performer.js" ></script>
+<script src="circus-login/circus-login.js" ></script>
+<script src="circus-join/circus-join.js" ></script>
+<script src="config/config.js" ></script>
+</body>
+</html>
+
+
+
